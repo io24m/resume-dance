@@ -23,7 +23,7 @@ html {
   padding: .5em;
   border: 1px solid;
   margin: auto;
-  overflow: auto;
+  overflow: hidden;
   width: 45vw; height: 40vh;
 }
 
@@ -33,17 +33,6 @@ html {
 .token.punctuation{ color: yellow; }
 .token.function{ color: rgb(42,161,152); }
 
-/* 加点 3D 效果呗 */
-html{
-  perspective: 1000px;
-}
-.prismEditor1 {
-  -webkit-transition: none;
-  transition: none;
-  -webkit-transform: rotateY(10deg) translateZ(-100px) ;
-          transform: rotateY(10deg) translateZ(-100px) ;
-}
-
 /* 接下来我给自己准备一个编辑器 */
 .mdEditor{
     padding: .5em;
@@ -52,4 +41,15 @@ html{
     overflow: auto;
     width: 45vw; height: 40vh;
 }`;
+
+// /* 加点 3D 效果呗 */
+// html{
+//     perspective: 1000px;
+//   }
+//   .prismEditor1 {
+//     -webkit-transition: none;
+//     transition: none;
+//     -webkit-transform: rotateY(10deg) translateZ(-100px) ;
+//             transform: rotateY(10deg) translateZ(-100px) ;
+//   }
 export default style
