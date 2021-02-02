@@ -1,11 +1,16 @@
 <template>
   <div id="app">
-    <PrismEditor :text="styleCode" v-on:afterRender="prismEditorAfterRender"></PrismEditor>
+    <MdEditor></MdEditor>
+    <PrismEditor
+      :text="styleCode"
+      v-on:afterRender="prismEditorAfterRender"
+    ></PrismEditor>
   </div>
 </template>
 
 <script>
 import PrismEditor from "./components/PrismEditor.vue";
+import MdEditor from "./components/MdEditor.vue";
 import style from "./style";
 
 export default {
@@ -17,11 +22,12 @@ export default {
   },
   components: {
     PrismEditor,
+    MdEditor,
   },
   methods: {
-    prismEditorAfterRender(){
-      console.log("prismEditorAfterRender")
-    }
+    prismEditorAfterRender() {
+      console.log("prismEditorAfterRender");
+    },
   },
 };
 </script>

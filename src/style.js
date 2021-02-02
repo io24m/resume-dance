@@ -24,7 +24,7 @@ html {
   border: 1px solid;
   margin: auto;
   overflow: auto;
-  width: 45vw; height: 90vh;
+  width: 45vw; height: 40vh;
 }
 
 /* 代码高亮 */
@@ -45,12 +45,11 @@ html{
 }
 
 /* 接下来我给自己准备一个编辑器 */
-.resumeEditor{
-  position: fixed; right: 0; top: 0;
-  padding: .5em;  margin: .5em;
-  width: 48vw; height: 90vh;
-  border: 1px solid;
-  background: white; color: #222;
-  overflow: auto;
+.mdEditor{
+    padding: .5em;
+    border: 1px solid;
+    margin: .1em auto;
+    overflow: auto;
+    width: 45vw; height: 40vh;
 }`;
 export default style

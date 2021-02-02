@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "marked": "^1.2.8",
     "prismjs": "^1.23.0",
     "vue": "^2.6.11"
   },

@@ -1,5 +1,5 @@
 <template>
-  <div class="prismEditor" ref="prismEditor">
+  <div class="prismEditor" ref="prismEditor" style="overflow: hidden">
     <div style="display: none" v-html="divStyle"></div>
     <pre v-html="highlightCode"></pre>
   </div>
@@ -14,7 +14,11 @@ export default {
     },
     interval: {
       type: Number,
-      default: 5,
+      default: 20,
+    },
+    animation: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
@@ -36,7 +40,11 @@ export default {
   },
   methods: {
     async init() {
-      await this.showStyle(1);
+      if (this.animation) await this.showStyle(1);
+      else {
+        await this.write(this.text);
+        this.toBottom();
+      }
     },
     async showStyle(index) {
       setTimeout(() => {
