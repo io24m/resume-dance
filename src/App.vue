@@ -5,12 +5,14 @@
       :text="styleCode"
       v-on:afterRender="prismEditorAfterRender"
     ></PrismEditor>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import PrismEditor from "./components/PrismEditor.vue";
 import MdEditor from "./components/MdEditor.vue";
+import Footer from "./components/Footer.vue";
 import style from "./style";
 
 export default {
@@ -23,6 +25,7 @@ export default {
   components: {
     PrismEditor,
     MdEditor,
+    Footer,
   },
   methods: {
     prismEditorAfterRender() {
