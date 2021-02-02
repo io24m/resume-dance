@@ -40,7 +40,19 @@ html {
     margin: .1em auto;
     overflow: auto;
     width: 45vw; height: 40vh;
-}`;
+}
+
+/* 再准备一个渲染器 */
+.menu{
+    padding: .5em;
+    margin: .1em auto;
+    overflow: hidden;
+    width: 45vw;
+    height: 10vh;
+    text-align: center;
+}
+
+`;
 
 // /* 加点 3D 效果呗 */
 // html{

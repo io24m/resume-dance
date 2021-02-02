@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MdEditor></MdEditor>
+    <MdEditor v-if="showMdEditor"></MdEditor>
     <PrismEditor
       :text="styleCode"
       v-on:afterRender="prismEditorAfterRender"
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       styleCode: style,
+      showMdEditor: false,
     };
   },
   components: {
@@ -29,7 +30,7 @@ export default {
   },
   methods: {
     prismEditorAfterRender() {
-      console.log("prismEditorAfterRender");
+      this.showMdEditor = true;
     },
   },
 };
@@ -49,5 +50,10 @@ html {
 }
 * {
   box-sizing: border-box;
+}
+a {
+  color: rgb(42, 161, 152);
+  margin-left: 0.5em;
+  /* padding-left: .5em; */
 }
 </style>
