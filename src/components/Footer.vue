@@ -1,15 +1,14 @@
 <template>
   <div class="footer">
-    <a :href="github" target="_blank">github</a>
-    <a :href="email" target="_blank">email</a>
+    <a href="https://github.com/io24m" target="_blank" :rel="rel">github</a>
+    <a href="mailto:io24m@outlook.com" target="_blank" :rel="rel">email</a>
   </div>
 </template>
 <script>
 export default {
-  dat() {
+  data() {
     return {
-      github: "'https://github.com/io24m'",
-      email: "'mailto:io24m@outlook.com'",
+      rel: "noopener noreferrer",
     };
   },
 };
