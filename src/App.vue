@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <PrismEditor :text="styleCode" v-on:afterRender="prismEditorAfterRender"></PrismEditor>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PrismEditor from "./components/PrismEditor.vue";
+import style from "./style";
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      styleCode: style,
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    PrismEditor,
+  },
+  methods: {
+    prismEditorAfterRender(){
+      console.log("prismEditorAfterRender")
+    }
+  },
+};
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  -moz-osx-font-smoothing: grayscale; 
+  color: #a3a3a3;
+  margin-top: 5px;
+} */
+
+html {
+  min-height: 100vh;
+}
+* {
+  box-sizing: border-box;
 }
 </style>
