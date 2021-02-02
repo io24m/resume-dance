@@ -34,31 +34,38 @@ export default {
       return Prism.highlight(this.code, Prism.languages.css);
     },
   },
-  async created() {
-    await this.init();
-    this.$emit("afterRender");
+  created() {
+    this.init().then(() => {
+      console.log("1");
+      this.$emit("afterRender");
+    });
   },
   methods: {
     async init() {
       if (this.animation) await this.showStyle(1);
       else {
         await this.write(this.text);
-        this.toBottom();
+        await this.toBottom();
       }
     },
-    async showStyle(index) {
-      setTimeout(() => {
-        if (index > this.text.length) {
-          return;
-        }
-        const v = this.text.substring(0, index);
-        this.write(v);
-        index++;
-        this.$nextTick(() => {
-          this.toBottom();
-        });
-        this.showStyle(index);
-      }, this.interval);
+    showStyle(index) {
+      var me = this;
+      return new Promise((resolve) => {
+        let renderStyle = async function () {
+          if (index > me.text.length) {
+            resolve();
+            return;
+          }
+          const v = me.text.substring(0, index);
+          me.write(v);
+          index++;
+          me.$nextTick(() => {
+            me.toBottom();
+          });
+          setTimeout(renderStyle, me.interval);
+        }.bind(this);
+        renderStyle();
+      });
     },
     async write(v) {
       if (!v) {
