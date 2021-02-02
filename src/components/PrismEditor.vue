@@ -32,7 +32,6 @@ export default {
   },
   async created() {
     await this.init();
-    console.log("ok");
     this.$emit("afterRender");
   },
   methods: {
