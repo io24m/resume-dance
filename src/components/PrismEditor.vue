@@ -36,7 +36,6 @@ export default {
   },
   created() {
     this.init().then(() => {
-      console.log("1");
       this.$emit("afterRender");
     });
   },
