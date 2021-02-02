@@ -25,8 +25,8 @@ export default {
   },
   data() {
     return {
-      md: `[简书](http://jianshu.com)
-[简书](http://jianshu.com)`,
+      md: `[github](https://github.com/io24m)
+[github](https://github.com/io24m)`,
     };
   },
   computed: {
@@ -38,7 +38,7 @@ export default {
     },
   },
   created() {
-      
+
   },
 };
 </script>
