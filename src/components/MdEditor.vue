@@ -8,11 +8,11 @@
 </template>
 <script>
 import marked from "marked";
+import each from "@/util";
 export default {
   props: {
     text: {
-      type: String,
-      default: "",
+      default: [],
     },
     interval: {
       type: Number,
@@ -26,11 +26,15 @@ export default {
   data() {
     return {
       mdText: "",
+      md: "",
     };
   },
   computed: {
     menu() {
-      return marked(this.mdText);
+      return marked(this.md);
+    },
+    textJoin() {
+      return this.text.join("");
     },
   },
   created() {
@@ -42,7 +46,8 @@ export default {
     async init() {
       if (this.animation) await this.showMd();
       else {
-        await this.write(this.text);
+        await this.writeMdText(this.textJoin);
+        await this.writeMd(this.textJoin);
         await this.toBottom();
       }
     },
@@ -51,12 +56,20 @@ export default {
       let me = this;
       return new Promise((resolve) => {
         let renderMd = async function () {
-          if (index > me.text.length) {
+          if (index > me.textJoin.length) {
             resolve();
             return;
           }
-          const v = me.text.substring(0, index);
-          me.write(v);
+          each(
+            me.text,
+            index,
+            (item1) => {
+              me.writeMd(item1);
+            },
+            (item2) => {
+              me.writeMdText(item2);
+            }
+          );
           index++;
           me.$nextTick(() => {
             me.toBottom();
@@ -66,14 +79,14 @@ export default {
         renderMd();
       });
     },
-    async write(v) {
-      if (!v) {
-        return;
-      }
-      this.mdText = v;
+    writeMdText(mdText) {
+      this.mdText = mdText;
     },
-    async toBottom() {
-      this.$refs.mdEditor.scrollTop = 10000;
+    writeMd(md) {
+      this.md = md;
+    },
+    toBottom() {
+      if (this.$refs.mdEditor) this.$refs.mdEditor.scrollTop = 10000;
     },
   },
 };

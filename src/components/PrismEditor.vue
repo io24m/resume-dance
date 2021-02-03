@@ -73,8 +73,8 @@ export default {
       }
       this.code = v;
     },
-    async toBottom() {
-      this.$refs.prismEditor.scrollTop = 10000;
+    toBottom() {
+      if (this.$refs.prismEditor) this.$refs.prismEditor.scrollTop = 10000;
     },
   },
 };
