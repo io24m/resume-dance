@@ -1,3 +1,5 @@
+let width = '40vw'
+width = "90%"
 const style = `/* 
 * 你好，欢迎访问  
 * email: io24m@outlook.com
@@ -13,16 +15,8 @@ const style = `/*
 
 /* 白色背景太单调了，我们来点背景 */
 html {
-  color: rgb(222,222,222); 
+  color: #a3a3a3; 
   background: rgb(0,43,54);
-}
-
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #a3a3a3;
-    margin-top: 5px;
 }
 
 /* 文字离边框太近了 */
@@ -31,7 +25,8 @@ html {
   border: 1px solid;
   margin: auto;
   overflow: hidden;
-  width: 45vw; height: 40vh;
+  width: ${width}; 
+  height: 40vh;
 }
 
 /* 代码高亮 */
@@ -46,7 +41,8 @@ html {
     border: 1px solid;
     margin: .1em auto;
     overflow: auto;
-    width: 45vw; height: 40vh;
+    width: ${width}; 
+    height: 25vh;
 }
 
 /* 再准备一个渲染器 */
@@ -54,7 +50,7 @@ html {
     padding: .5em;
     margin: .1em auto;
     overflow: hidden;
-    width: 45vw;
+    width: ${width};
     height: 10vh;
     text-align: center;
 }

@@ -3,12 +3,12 @@
     <MdEditor
       v-if="showMdEditor"
       :text="mdText"
-      :animation="true"
+      :animation="false"
       v-on:afterRender="mdEditorAfterRender"
     ></MdEditor>
     <PrismEditor
       :text="styleCode"
-      :animation="true"
+      :animation="false"
       v-on:afterRender="prismEditorAfterRender"
     ></PrismEditor>
     <Footer></Footer>
@@ -48,13 +48,12 @@ export default {
 </script>
 
 <style>
-/* #app {
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
-  color: #a3a3a3;
+  -moz-osx-font-smoothing: grayscale;
   margin-top: 5px;
-} */
+}
 
 html {
   min-height: 100vh;
