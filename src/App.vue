@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <MdEditor v-if="showMdEditor"></MdEditor>
+    <MdEditor v-if="showMdEditor" :text="mdText" :animation="true"></MdEditor>
     <PrismEditor
       :text="styleCode"
+      :animation="true"
       v-on:afterRender="prismEditorAfterRender"
     ></PrismEditor>
     <Footer></Footer>
@@ -14,12 +15,14 @@ import PrismEditor from "./components/PrismEditor.vue";
 import MdEditor from "./components/MdEditor.vue";
 import Footer from "./components/Footer.vue";
 import style from "./style";
+import md from "./md";
 
 export default {
   name: "App",
   data() {
     return {
       styleCode: style,
+      mdText: md,
       showMdEditor: false,
     };
   },

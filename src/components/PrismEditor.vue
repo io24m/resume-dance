@@ -41,14 +41,15 @@ export default {
   },
   methods: {
     async init() {
-      if (this.animation) await this.showStyle(1);
+      if (this.animation) await this.showStyle();
       else {
         await this.write(this.text);
         await this.toBottom();
       }
     },
-    showStyle(index) {
-      var me = this;
+    showStyle() {
+      let index = 1;
+      let me = this;
       return new Promise((resolve) => {
         let renderStyle = async function () {
           if (index > me.text.length) {

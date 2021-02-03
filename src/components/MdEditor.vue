@@ -2,7 +2,7 @@
   <div>
     <div class="menu" v-html="menu"></div>
     <div class="mdEditor" ref="mdEditor">
-      <pre class="md" v-html="mdText"></pre>
+      <pre class="md" v-text="mdText"></pre>
     </div>
   </div>
 </template>
@@ -25,23 +25,58 @@ export default {
   },
   data() {
     return {
-      md: `[github](https://github.com/io24m)
-[github](https://github.com/io24m)`,
+      mdText:"",
     };
   },
   computed: {
     menu() {
-      return marked(this.md);
-    },
-    mdText() {
-      return "开始编写markdown文档......\r" + this.md;
+      return marked(this.mdText);
     },
   },
   created() {
-
+    this.init().then(() => {
+      this.$emit("afterRender");
+    });
+  },
+  methods: {
+    async init() {
+      if (this.animation) await this.showMd();
+      else {
+        await this.write(this.text);
+        await this.toBottom();
+      }
+    },
+    showMd() {
+      let index = 1;
+      let me = this;
+      return new Promise((resolve) => {
+        let renderMd = async function () {
+          if (index > me.text.length) {
+            resolve();
+            return;
+          }
+          const v = me.text.substring(0, index);
+          me.write(v);
+          index++;
+          me.$nextTick(() => {
+            me.toBottom();
+          });
+          setTimeout(renderMd, me.interval);
+        }.bind(this);
+        renderMd();
+      });
+    },
+    async write(v) {
+      if (!v) {
+        return;
+      }
+      this.mdText = v;
+    },
+    async toBottom() {
+      this.$refs.mdEditor.scrollTop = 10000;
+    },
   },
 };
 </script>
 <style scoped>
-
 </style>

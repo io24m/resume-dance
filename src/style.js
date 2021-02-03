@@ -1,4 +1,4 @@
-let style = `/* 首先给所有元素加上过渡效果 */
+const style = `/* 首先给所有元素加上过渡效果 */
 * {
   transition: all .4s;
 }
