@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <MdEditor v-if="showMdEditor" :text="mdText" :animation="true"></MdEditor>
+    <MdEditor v-if="showMdEditor" :text="mdText" :animation="false"></MdEditor>
     <PrismEditor
       :text="styleCode"
-      :animation="true"
+      :animation="false"
       v-on:afterRender="prismEditorAfterRender"
     ></PrismEditor>
     <Footer></Footer>
