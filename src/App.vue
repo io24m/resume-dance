@@ -3,12 +3,12 @@
     <MdEditor
       v-if="showMdEditor"
       :text="mdText"
-      :animation="false"
+      :animation="true"
       v-on:afterRender="mdEditorAfterRender"
     ></MdEditor>
     <PrismEditor
       :text="styleCode"
-      :animation="false"
+      :animation="true"
       v-on:afterRender="prismEditorAfterRender"
     ></PrismEditor>
     <Footer></Footer>
