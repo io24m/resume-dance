@@ -11,7 +11,7 @@
       :animation="true"
       v-on:afterRender="prismEditorAfterRender"
     ></PrismEditor>
-    <Footer></Footer>
+    <Footer v-if="showFooter"></Footer>
   </div>
 </template>
 
@@ -29,6 +29,7 @@ export default {
       styleCode: style,
       mdText: md,
       showMdEditor: false,
+      showFooter: true,
     };
   },
   components: {
@@ -41,7 +42,7 @@ export default {
       this.showMdEditor = true;
     },
     mdEditorAfterRender() {
-      //console.log("mdEditorAfterRender");
+      this.showFooter = false;
     },
   },
 };
