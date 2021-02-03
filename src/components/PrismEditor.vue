@@ -14,7 +14,7 @@ export default {
     },
     interval: {
       type: Number,
-      default: 20,
+      default: 40,
     },
     animation: {
       type: Boolean,

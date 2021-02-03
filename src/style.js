@@ -1,4 +1,12 @@
-const style = `/* 首先给所有元素加上过渡效果 */
+const style = `/* 
+* 你好，欢迎访问  
+* email: io24m@outlook.com
+* github: https://github.com/io24m
+* 访问请点击右下角菜单
+* 现在开始渲染......
+*/
+
+/* 首先给所有元素加上过渡效果 */
 * {
   transition: all .4s;
 }
